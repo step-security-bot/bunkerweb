@@ -82,3 +82,428 @@ updates:
     commit-message:
       prefix: "deps/ui"
     target-branch: "dev"
+
+  - package-ecosystem: docker
+    directory: /docs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /docs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/common/core/modsecurity/files/coreruleset/tests/integration
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/common/core/modsecurity/files/coreruleset/tests/regression
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/common/db
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/common/gen
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/deps/src/lua-resty-openssl/scripts
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /src/deps/src/lua-resty-session/dev
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /src/deps/src/zlib/contrib/dotzlib/DotZLib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /src/ui
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/antibot
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/antibot
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/authbasic
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/authbasic
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/badbehavior
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/badbehavior
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/blacklist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/blacklist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/blacklist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/blacklist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/blacklist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/blacklist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/brotli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/brotli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/bunkernet
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/bunkernet/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/bunkernet/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/bunkernet
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/bwcli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/bwcli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/clientcache
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/clientcache
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/cors
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/cors
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/country
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/country
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/customcert
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/customcert/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/customcert
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/db
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/db/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/db
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/dnsbl
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/dnsbl/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/dnsbl/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/dnsbl
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/errors
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/errors
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/greylist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/greylist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/greylist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/greylist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/greylist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/greylist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/gzip
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/gzip
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/headers
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/headers
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/inject
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/inject
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/limit
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/limit
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/misc
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/misc
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/modsecurity
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/modsecurity
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/redirect
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/redirect
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/redis
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/redis
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/reversescan
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/reversescan
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/selfsigned
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/selfsigned
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/sessions
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/sessions
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/whitelist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/whitelist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/whitelist/api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/core/whitelist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/whitelist/init
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/core/whitelist
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tests/ui
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /tests/ui
+    schedule:
+      interval: daily

@@ -31,13 +31,21 @@ on:
       ARM_SSH_CONFIG:
         required: false
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       # Prepare
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - name: Replace VERSION
         if: inputs.RELEASE == 'testing'
         run: ./misc/update-version.sh testing
@@ -70,21 +78,21 @@ jobs:
           SSH_IP: ${{ secrets.ARM_SSH_IP }}
           SSH_CONFIG: ${{ secrets.ARM_SSH_CONFIG }}
       - name: Setup Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@885d1462b80bc1c1c7f0b00334ad271f09369c55 # v2.10.0
         if: startsWith(env.ARCH, 'arm') == false
       - name: Setup Buildx (ARM)
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@885d1462b80bc1c1c7f0b00334ad271f09369c55 # v2.10.0
         if: startsWith(env.ARCH, 'arm') == true
         with:
           endpoint: ssh://root@arm
           platforms: linux/arm64,linux/arm/v7,linux/arm/v6
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Login to ghcr
-        uses: docker/login-action@v2
+        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -92,7 +100,7 @@ jobs:
       # Build testing package image
       - name: Build package image
         if: inputs.RELEASE == 'testing'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@0a97817b6ade9f46837855d676c4cca3a2471fc9 # v4.2.1
         with:
           context: .
           load: true
@@ -104,7 +112,7 @@ jobs:
       # Build non-testing package image
       - name: Build package image
         if: inputs.RELEASE != 'testing'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@0a97817b6ade9f46837855d676c4cca3a2471fc9 # v4.2.1
         with:
           context: .
           load: true
@@ -127,7 +135,7 @@ jobs:
           scp -r root@arm:/root/package-${{ inputs.LINUX }} ./package-${{ inputs.LINUX }}
         env:
           LARCH: ${{ env.LARCH }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: package-${{ inputs.LINUX }}-${{ env.LARCH }}
           path: package-${{ inputs.LINUX }}/*.${{ inputs.PACKAGE }}
@@ -135,12 +143,12 @@ jobs:
       - name: Extract metadata
         if: inputs.TEST == true
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175 # v4.6.0
         with:
           images: ghcr.io/bunkerity/${{ inputs.LINUX }}-tests:${{ inputs.RELEASE }}
       - name: Build test image
         if: inputs.TEST == true
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@0a97817b6ade9f46837855d676c4cca3a2471fc9 # v4.2.1
         with:
           context: .
           file: tests/linux/Dockerfile-${{ inputs.LINUX }}
