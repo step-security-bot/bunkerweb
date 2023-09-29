@@ -13,12 +13,20 @@ on:
       BUNKERBOT_TOKEN:
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
         with:
           fetch-depth: 0
           token: ${{ secrets.BUNKERBOT_TOKEN }}
@@ -29,7 +37,7 @@ jobs:
         run: |
           git config --global user.name "BunkerBot"
           git config --global user.email "bunkerbot@bunkerity.com"
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
         with:
           python-version: "3.10"
       - name: Install doc requirements
